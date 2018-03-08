@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:myUser="http://www.lexueba.com/schema/user"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	        http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.1.xsd
+            http://www.lexueba.com/schema/user
+            http://www.lexueba.com/schema/user.xsd
+
+
+	 ">
+    <bean id="person" class="spring.entity.Persion"></bean>
+    <bean id="actionHandler" class="spring.scanner.ActionHandler"></bean>
+
+    <!--
+    <context:component-scan base-package="spring"></context:component-scan>
+    <bean class="spring.annotation.parse.MyDatabase"></bean>
+    <bean id="user" class="spring.entity.User" init-method="init">
+        <property name="date" value="2018.01.01"></property>
+
+    </bean>
+
+    <bean id="person" class="spring.entity.Persion"></bean>
+    <bean id="student" class="spring.entity.Student"   ></bean>
+
+    <bean id="beanFactoryPostProcessorOne" class="spring.entity.BeanFactoryPostProcessorOne"></bean>
+    <bean id ="BeanPostProcessorOne" class="spring.entity.PostProcessorOne"></bean>
+
+    -->
+
+
+
+
+</beans>

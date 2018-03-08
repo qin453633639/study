@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lovego.user.dao.UserMapper">
+	<resultMap id="userResultMap" type="com.lovego.user.po.User">
+	    <result column="id" jdbcType="INTEGER" property="id" />
+	    <result column="name" jdbcType="VARCHAR" property="name" />
+	    <result column="age" jdbcType="INTEGER" property="age" />
+	    <result column="brith" jdbcType="TIMESTAMP" property="brith" /> 
+	    <result column="sex" jdbcType="INTEGER" property="sex" />
+	    <result column="addr" jdbcType="INTEGER" property="addr" />
+	</resultMap>
+  
+	<select id="list" resultMap="userResultMap">
+		select id,name,age,brith,sex ,addr from hk_lovego_tuser 
+		where 1=1 
+		limit  #{0},#{1}
+	</select>
+  
+	<delete id="delete">
+  		delete from hk_lovego_tuser where id = #{id}
+	</delete>
+  
+  	<update id="edit">
+  		update   hk_lovego_tuser set name =#{name},age=#{age},brith=#{brith},sex =#{sex}, addr = #{addr} where id = #{id}
+  	</update>
+  	
+  	<insert id="add">
+  		insert into hk_lovego_tuser(name,age,brith,sex,addr)
+  		values(#{name},#{age},#{brith},#{sex},#{addr})
+  	</insert>
+  	
+  	<select id="size" resultType="long">
+  		select count(1) from  hk_lovego_tuser;
+  	</select>
+</mapper>
