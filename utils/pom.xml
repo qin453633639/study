@@ -5,17 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.bestbigbird</groupId>
-    <artifactId>study</artifactId>
+    <artifactId>utils</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-
     <modules>
-        <!--
-        <module>spring</module>
-        <module>java</module>
-        <module>mq</module>
-        <module>utils</module>
-          -->
+        <module>data-increment-sysc</module>
     </modules>
-    
+
 </project>
