@@ -13,9 +13,10 @@
 
 	 ">
     <bean id="person" class="spring.entity.Persion"></bean>
-    <bean id="actionHandler" class="spring.scanner.ActionHandler"></bean>
+    <context:component-scan base-package="spring.entity"></context:component-scan>
 
     <!--
+    <bean id="actionHandler" class="spring.scanner.ActionHandler"></bean>
     <context:component-scan base-package="spring"></context:component-scan>
     <bean class="spring.annotation.parse.MyDatabase"></bean>
     <bean id="user" class="spring.entity.User" init-method="init">

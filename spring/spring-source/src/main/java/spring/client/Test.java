@@ -27,7 +27,7 @@ public class Test {
 
 
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("application.xml");
-        ctx.destroy();
+
 
 
 
