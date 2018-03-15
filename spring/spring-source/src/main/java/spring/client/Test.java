@@ -5,6 +5,8 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import spring.aop.OrderServiceimpl;
+import spring.aop.TitleServiceImpl;
 import spring.entity.Student;
 import spring.entity.User;
 
@@ -20,15 +22,16 @@ public class Test {
     public static  void benaPareAndInit(){
 
         //spring如何初始化有两种方式 beanFactory applicationContext
-        /*Resource resource = new ClassPathResource("application.xml");
+       /* Resource resource = new ClassPathResource("application.xml");
         BeanFactory beanFactory = new XmlBeanFactory(resource);
-        Student s = (Student) beanFactory.getBean("user");*/
-
+        OrderServiceimpl s =   beanFactory.getBean(OrderServiceimpl.class);
+        s.count();*/
 
 
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("application.xml");
-
-
+        System.out.println(ctx.getBean(OrderServiceimpl.class).count());
+       /* System.out.println(ctx.getBean(OrderServiceimpl.class).getClass());
+        System.out.println(ctx.getBean(TitleServiceImpl.class).getClass());*/
 
 
 

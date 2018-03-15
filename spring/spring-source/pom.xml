@@ -39,6 +39,21 @@
       <artifactId>spring-context-support</artifactId>
       <version>4.3.13.RELEASE</version>
     </dependency>
+
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjrt</artifactId>
+      <version>1.8.6</version>
+    </dependency>
+    <!--使用AspectJ方式注解需要相应的包-->
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.8.6</version>
+    </dependency>
+
+
+    <!-- 日志 -->
     <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
