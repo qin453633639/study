@@ -2,6 +2,8 @@ package com.bestbigbird;
 
 import com.bestbigbird.entity.User;
 import com.bestbigbird.mapper.UserMapper;
+import org.apache.ibatis.builder.xml.XMLMapperBuilder;
+import org.apache.ibatis.executor.ErrorContext;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -22,20 +24,28 @@ public class App {
         String resource = "configure.xml";
         // 得到配置文件流
         InputStream inputStream = Resources.getResourceAsStream(resource);
-
         // 创建会话工厂，传入mybatis的配置文件信息
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 
-        // 通过工厂得到SqlSession
+
+        String path = "mapper/UserMapper.xml";
+        ErrorContext.instance().resource(path);
+        InputStream input = Resources.getResourceAsStream(path);
+        XMLMapperBuilder mapperParser = new XMLMapperBuilder(input, sqlSessionFactory.getConfiguration(), path,
+                sqlSessionFactory.getConfiguration().getSqlFragments());
+        mapperParser.parse();
+
+
         SqlSession sqlSession = sqlSessionFactory.openSession();
         // list中的user和映射文件中resultType所指定的类型一致
        UserMapper mapper = sqlSession.getMapper(UserMapper.class) ;
 
 
 
-       mapper.deleteById(1);
+       User u = mapper.findById(2);
+        System.out.println(u.getId()+"  --   "+u.getAge());
 
-        sqlSession.commit();
+
         sqlSession.close();
     }
 

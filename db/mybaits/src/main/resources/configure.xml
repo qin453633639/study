@@ -23,7 +23,8 @@
     
     <mappers>
         <!-- // power by http://www.yiibai.com -->
+        <!--
         <mapper resource="mapper/UserMapper.xml" />
-
+        -->
     </mappers>
 </configuration>
