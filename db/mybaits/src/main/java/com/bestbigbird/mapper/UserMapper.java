@@ -12,4 +12,7 @@ public interface UserMapper {
     //根据用户名列模糊查询用户列表
     public User findById(Integer id)throws Exception;
 
+    //根据用户名列模糊查询用户列表
+    public int deleteById(Integer age)throws Exception;
+
 }
