@@ -1,8 +1,9 @@
 package com.bestbigbird.annotation.parse;
 
-import spring.annotation.MyDatabaseClassAnnotation;
-import spring.annotation.MyMethodAnnotation;
-import spring.annotation.MyTablebaseClassAnnotation;
+import com.bestbigbird.annotation.MyDatabaseClassAnnotation;
+import com.bestbigbird.annotation.MyMethodAnnotation;
+import com.bestbigbird.annotation.MyTablebaseClassAnnotation;
+
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
