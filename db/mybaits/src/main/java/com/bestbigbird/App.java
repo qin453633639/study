@@ -27,6 +27,24 @@ public class App {
         // 创建会话工厂，传入mybatis的配置文件信息
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        // list中的user和映射文件中resultType所指定的类型一致
+       User u = (User)sqlSession.selectOne("com.bestbigbird.mapper.UserMapper.findById",3);
+
+       System.out.println(u.getId()+"  --   "+u.getAge());
+       sqlSession.close();
+    }
+
+
+    public void aa() throws IOException {
+        System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles","true");
+
+        String resource = "configure.xml";
+        // 得到配置文件流
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        // 创建会话工厂，传入mybatis的配置文件信息
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+
 
         String path = "mapper/UserMapper.xml";
         ErrorContext.instance().resource(path);
@@ -38,17 +56,20 @@ public class App {
 
         SqlSession sqlSession = sqlSessionFactory.openSession();
         // list中的user和映射文件中resultType所指定的类型一致
-       UserMapper mapper = sqlSession.getMapper(UserMapper.class) ;
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class) ;
 
 
-
-       User u = mapper.findById(2);
+        User u = null;
+        try {
+            u = mapper.findById(2);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         System.out.println(u.getId()+"  --   "+u.getAge());
 
 
         sqlSession.close();
     }
-
 
 
 }
