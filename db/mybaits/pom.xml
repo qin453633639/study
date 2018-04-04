@@ -25,6 +25,48 @@
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
+        <!-- spring 核心依赖-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>4.3.13.RELEASE</version>
+        </dependency>
+        <!-- spring bean工厂-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>4.3.13.RELEASE</version>
+        </dependency>
+
+        <!-- spring 容器支持-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>4.3.13.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>4.3.13.RELEASE</version>
+        </dependency>
+
+        <!-- srping 自己封装一套操作jdbc的api-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>4.3.13.RELEASE</version>
+        </dependency>
+
+        <!-- mybaits-spring -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>1.3.0</version>
+        </dependency>
+
+
+
+        <!-- mybita -->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
@@ -35,6 +77,13 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.29</version>
+        </dependency>
+
+        <!-- 数据源连接池 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.0.27</version>
         </dependency>
 </dependencies>
 </project>
