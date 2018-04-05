@@ -24,15 +24,22 @@ public class App {
         String resource = "configure.xml";
         // 得到配置文件流
         InputStream inputStream = Resources.getResourceAsStream(resource);
-        // 创建会话工厂，传入mybatis的配置文件信息
+        // 创建会话工厂，传 入mybatis的配置文件信息
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+
 
         SqlSession sqlSession = sqlSessionFactory.openSession();
         // list中的user和映射文件中resultType所指定的类型一致
-       User u = (User)sqlSession.selectOne("com.bestbigbird.mapper.UserMapper.findById",3);
+        User u = (User)sqlSession.selectOne("com.bestbigbird.mapper.UserMapper.findById",5);
+        System.out.println(u.getId()+"  --   "+u.getAge());
+        sqlSession.close();
 
-       System.out.println(u.getId()+"  --   "+u.getAge());
-       sqlSession.close();
+
+        sqlSession = sqlSessionFactory.openSession();
+        u = (User)sqlSession.selectOne("com.bestbigbird.mapper.UserMapper.findById",3);
+        System.out.println(u.getId()+"  --   "+u.getAge());
+        sqlSession.close();
+
     }
 
 
@@ -61,7 +68,7 @@ public class App {
 
         User u = null;
         try {
-            u = mapper.findById(2);
+            u = mapper.findById(3);
         } catch (Exception e) {
             e.printStackTrace();
         }
