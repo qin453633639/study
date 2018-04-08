@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="cacheEnabled" value="true"/>
+        <setting name="defaultExecutorType" value="SIMPLE"/>
+    </settings>
+
+    <typeAliases>
+        <typeAlias alias="User" type="com.bestbigbird.entity.User" />
+    </typeAliases>
+    <!--
+        <plugins>
+            <plugin interceptor="com.bestbigbird.interceptor.SQLStatsInterceptor">
+                <property name="dialect" value="mysql" />
+            </plugin>
+        </plugins>
+
+        <environments default="development">
+            <environment id="development">
+                <transactionManager type="JDBC"  />
+                <dataSource type="POOLED">
+                    <property name="driver" value="com.mysql.jdbc.Driver" />
+                    <property name="url" value="jdbc:mysql://119.23.36.49:3306/my" />
+                    <property name="username" value="root" />
+                    <property name="password" value="qinwei" />
+                </dataSource>
+            </environment>
+        </environments>
+    -->
+    <mappers>
+        <mapper resource="mapper/UserMapper.xml" />
+    </mappers>
+
+
+
+
+
+
+</configuration>
