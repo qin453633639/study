@@ -1,6 +1,8 @@
 package spring.entity;
 
 
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.context.Lifecycle;
 import org.springframework.context.SmartLifecycle;
 
 /**
@@ -8,13 +10,23 @@ import org.springframework.context.SmartLifecycle;
  */
 
 
-public class Student  implements SmartLifecycle {
-    private String hello;
+public class Student  implements Lifecycle,DisposableBean {
+    private String age;
+
+
     public Student(){
 
     }
 
+    public String getAge() {
+        return age;
+    }
 
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    /*
     @Override
     public boolean isAutoStartup() {
         return true;
@@ -22,17 +34,17 @@ public class Student  implements SmartLifecycle {
 
     @Override
     public void stop(Runnable callback) {
-
-    }
+        System.out.println("SmartLifecycle stop()");
+    }*/
 
     @Override
     public void start() {
-        System.out.println("student start()");
+        System.out.println("Lifecycle start()");
     }
 
     @Override
     public void stop() {
-
+        System.out.println("Lifecycle stop");
     }
 
     @Override
@@ -40,8 +52,17 @@ public class Student  implements SmartLifecycle {
         return false;
     }
 
-    @Override
+    /*@Override
     public int getPhase() {
         return 2;
+    }*/
+
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("DisposableBean destroy");
+    }
+
+    public void initDestroy(){
+        System.out.println("initDestroy destroy");
     }
 }

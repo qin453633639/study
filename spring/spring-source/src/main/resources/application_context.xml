@@ -10,10 +10,15 @@
             http://www.lexueba.com/schema/user
             http://www.lexueba.com/schema/user.xsd
 
+	 "
+       default-lazy-init="false"
 
-	 ">
+>
 
-
+    <bean id="student" class="spring.entity.Student"   destroy-method="initDestroy" >
+        <meta key="name" value="1"></meta>
+        <property name="age" value="${11}"/>
+    </bean>
     <!--
     <bean id="person" class="spring.entity.Persion"></bean>
     <context:component-scan base-package="spring.entity"></context:component-scan>
