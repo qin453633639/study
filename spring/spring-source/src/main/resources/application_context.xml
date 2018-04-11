@@ -14,10 +14,12 @@
        default-lazy-init="false"
 
 >
-
+    <bean id="placeholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="db.properties"></property>
+    </bean>
     <bean id="student" class="spring.entity.Student"   destroy-method="initDestroy" >
         <meta key="name" value="1"></meta>
-        <property name="age" value="${11}"/>
+        <property name="age" value="${age}"/>
     </bean>
     <!--
     <bean id="person" class="spring.entity.Persion"></bean>
