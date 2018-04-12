@@ -10,13 +10,33 @@
 			http://www.springframework.org/schema/aop
             http://www.springframework.org/schema/aop/spring-aop.xsd
 	 ">
-	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 
+
+
+
+
+
+
+
+
+
+	<!--
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 	<bean id="adviserOne" class="spring.aop.MyAopOne"></bean>
 	<bean id="adviserTwo" class="spring.aop.MyAopTwo"></bean>
 	<bean id="titleService" class="spring.aop.TitleServiceImpl"/>
+	-->
+
+	<bean id="timeHandler" class="spring.aop.TimeHandler" />
 	<bean id="orderService" class="spring.aop.OrderServiceimpl"/>
 
+	<aop:config proxy-target-class="true">
+		<aop:aspect id="time" ref="timeHandler">
+			<aop:pointcut id="addAllMethod" expression="execution(* *.count(..))" />
+			<aop:before method="printTime" pointcut-ref="addAllMethod" />
+			<aop:after method="printTime" pointcut-ref="addAllMethod" />
+		</aop:aspect>
+	</aop:config>
 
 
 </beans>
