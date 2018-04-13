@@ -1,9 +1,11 @@
 package com.bestbigbird.entity;
 
+import java.io.Serializable;
+
 /**
  * Created by qinwei on 2018/3/23.
  */
-public class User {
+public class User  implements Serializable{
     private Integer age;
     private Integer id;
 

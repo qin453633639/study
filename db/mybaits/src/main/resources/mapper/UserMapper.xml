@@ -8,7 +8,7 @@
         <result column="age" jdbcType="INTEGER" property="age" />
 
     </resultMap>
-
+    <cache/>
     <select id="findById" parameterType="int" resultType="User">
         select * from user where id = #{id}
     </select>
