@@ -13,14 +13,22 @@ import java.util.ArrayList;
 public class Client {
     public static void main(String[] args) {
 
-        Resource resource = new ClassPathResource("application_context.xml");
-        BeanFactory beanFactory = new XmlBeanFactory(resource);
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("application_txg.xml");
 
-        System.out.println( beanFactory.getBean("student", Student.class).getAge());
-        /*MyUserService userService = applicationContext.getBean(MyUserService.class);
+        MyUserService userService = applicationContext.getBean(MyUserService.class);
         MyUser myUser = new MyUser();
-        myUser.setId(16);
-        myUser.setAge(16);
-        userService.save(myUser);*/
+        myUser.setId(17);
+        myUser.setAge(17);
+        userService.save(myUser);
+
+        int a = 7;
+        Runnable r = new Runnable() {
+            @Override
+            public void run() {
+                System.out.println(1);
+            }
+        };
+
+        r = () -> System.out.println(1);
     }
 }
