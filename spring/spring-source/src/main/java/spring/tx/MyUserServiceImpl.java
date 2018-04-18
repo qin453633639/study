@@ -19,6 +19,6 @@ public class MyUserServiceImpl implements  MyUserService {
         builder.append(user.getId()).append(",").append(user.getAge()).append(")");
         this.jdbcTemplate.update(builder.toString());
 
-
+        throw new RuntimeException("211");
     }
 }
