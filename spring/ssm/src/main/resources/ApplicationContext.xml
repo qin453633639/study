@@ -14,9 +14,9 @@
 
   	<bean id="MyDataSource"  class="com.mchange.v2.c3p0.ComboPooledDataSource">
   		<property name="driverClass" value="com.mysql.jdbc.Driver" /> 
-		<property name="jdbcUrl" value="jdbc:mysql://192.168.100.58:3306/lovego" /> 
-        <property name="user" value="Malg_Pcm_01" /> 
-        <property name="password" value="jkj32_edrk22" />  
+		<property name="jdbcUrl" value="jdbc:mysql://119.23.36.49:3306/my" />
+        <property name="user" value="root" />
+        <property name="password" value="qinwei" />
         <property name="maxIdleTime" value="600" />
 		<property name="initialPoolSize" value="5"/>
 		<property name="minPoolSize" value="10"/>
