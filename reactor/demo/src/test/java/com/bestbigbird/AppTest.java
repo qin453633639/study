@@ -7,9 +7,14 @@ import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import reactor.core.scheduler.Scheduler;
+import reactor.core.scheduler.Schedulers;
 import reactor.test.StepVerifier;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Unit test for simple App.
@@ -18,33 +23,55 @@ public class AppTest {
 
     @Test
     public void flux() {
-        Flux.range(1, 10).subscribe(new Subscriber<Integer>() {
-            @Override
-            public void onSubscribe(Subscription s) {
-                s.request(10);
-            }
-
-            @Override
-            public void onNext(Integer integer) {
-                System.out.println(integer);
-            }
-
-            @Override
-            public void onError(Throwable t) {
-
-            }
-
-            @Override
-            public void onComplete() {
-
-            }
-        });
         //Flux.range(1, 10).filter(i -> i % 2 == 0).subscribe(System.out::println);
         //Flux.just("Hello", "World", "H23", "sb", "H").filter(item -> item.startsWith("H")).take(1).subscribe(System.out::println);
     }
 
     @Test
-    public void mono(){
+    public void testGenerate(){
+        final Random random = new Random();
+        Flux.generate(ArrayList::new, (list, sink) -> {
+            int value = random.nextInt(100);
+            list.add(value);
+            sink.next(value);
+            if (list.size() == 10) {
+                sink.complete();
+            }
+            return list;
+        }).subscribe(System.out::println);
+    }
+
+    @Test
+    public void testCreate() throws InterruptedException {
+        Flux yt=Flux.create(sink -> {
+            for (int i = 0; i < 10; i++) {
+                sink.next(i);
+            }
+            sink.complete();
+        }).publishOn(Schedulers.elastic());
+        yt.subscribe((i)->{
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println(Thread.currentThread().getName() + " "+i);
+        } );
+        yt.subscribe((i)->{
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println(Thread.currentThread().getName() + " "+i);
+        } );
+
+       TimeUnit.SECONDS.sleep(1000000);
+    }
+
+    @Test
+    public void testMono(){
+        Mono.create(sink -> sink.success("Hello")).subscribe(System.out::println);
 
     }
 }
