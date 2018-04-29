@@ -8,7 +8,7 @@ public class AtomicReferenceTest {
 
         Student s1 = new Student(1);
         Student s2 = new Student(2);
-        AtomicReference<Student> ar = new AtomicReference<>(s1);
+        AtomicReference<Student> ar = new AtomicReference<Student>(s1);
         ar.compareAndSet(s1, s2);
         Student s3 = ar.get();
 
