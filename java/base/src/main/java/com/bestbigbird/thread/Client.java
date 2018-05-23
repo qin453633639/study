@@ -31,7 +31,7 @@ public class Client {
      */
     public static void main(String[] args) {
        /* ExecutorService fixedThreadPool =  new ThreadPoolExecutor(1,2,2,null,null);*/
-        int corePoolSize = 5;
+        /*int corePoolSize = 5;
         int maxPoolSize = 10;
         long keepAliveTime = 5;
         BlockingQueue<Runnable> queue = new LinkedBlockingQueue<Runnable>(10);
@@ -49,7 +49,10 @@ public class Client {
                 e.printStackTrace();
             }
         }
-        executor.shutdown();
+        executor.shutdown();*/
+        byte a = (byte)127;
+        byte b = (byte)1;
+        System.out.println((byte)(a+b));
 
     }
 
