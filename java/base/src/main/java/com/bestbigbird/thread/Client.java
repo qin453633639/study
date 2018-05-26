@@ -1,6 +1,9 @@
 package com.bestbigbird.thread;
 
 import java.util.concurrent.*;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Client {
     /**
@@ -29,7 +32,7 @@ public class Client {
      4. 当一个线程空闲，超过一定的时间（keepAliveTime）时，线程池会判断，如果当前运行的线程数大于 corePoolSize，那么这个线程就被停掉。所以线程池的所有任务完成后，它最终会收缩到 corePoolSize 的大小。
      * @param args
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
        /* ExecutorService fixedThreadPool =  new ThreadPoolExecutor(1,2,2,null,null);*/
         /*int corePoolSize = 5;
         int maxPoolSize = 10;
@@ -50,9 +53,7 @@ public class Client {
             }
         }
         executor.shutdown();*/
-        byte a = (byte)127;
-        byte b = (byte)1;
-        System.out.println((byte)(a+b));
+
 
     }
 
