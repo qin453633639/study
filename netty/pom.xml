@@ -31,6 +31,13 @@
       <artifactId>netty-all</artifactId>
       <version>4.1.5.Final</version>
     </dependency>
+
+    <!-- 日志 -->
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.17</version>
+    </dependency>
   </dependencies>
 
   <build>
