@@ -34,4 +34,23 @@ public class EchoServerHandler1 extends ChannelInboundHandlerAdapter {
         cause.printStackTrace();
         ctx.close();
     }
+
+    @Override
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("----------------------------------EchoServerHandler1 channelActive-----------------------------------------");
+        super.channelActive(ctx);
+
+    }
+
+    @Override
+    public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("----------------------------------EchoServerHandler1 handlerAdded-----------------------------------------");
+        super.handlerAdded(ctx);
+    }
+
+    @Override
+    public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("----------------------------------EchoServerHandler1 channelRegistered-----------------------------------------");
+        super.channelRegistered(ctx);
+    }
 }
