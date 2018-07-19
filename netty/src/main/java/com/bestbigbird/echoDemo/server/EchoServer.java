@@ -1,9 +1,7 @@
 package com.bestbigbird.echoDemo.server;
 
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelInitializer;
-import io.netty.channel.EventLoopGroup;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
@@ -32,12 +30,15 @@ public class EchoServer {
         EventLoopGroup work = new NioEventLoopGroup();
         try {
             ServerBootstrap b = new ServerBootstrap();
-            b.group(group,work)
+            b.group(group, work)
                     //指定所使用的 NIO 传输 Channel
                     .channel(NioServerSocketChannel.class)
                     .localAddress(new InetSocketAddress(port))
+
+                    .childOption(ChannelOption.RCVBUF_ALLOCATOR, new AdaptiveRecvByteBufAllocator(128,128,128))
+                    .option(ChannelOption.SO_RCVBUF,256)
                     //添加一个 EchoServerHandler 到子 Channel的 ChannelPipeline
-                    .childHandler(new ChannelInitializer<SocketChannel>(){
+                    .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         public void initChannel(SocketChannel ch) throws Exception {
                             ch.pipeline().addLast(serverHandler).addLast(serverHandler1);

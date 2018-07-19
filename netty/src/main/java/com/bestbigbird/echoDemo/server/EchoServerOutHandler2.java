@@ -9,7 +9,7 @@ public class EchoServerOutHandler2 extends ChannelOutboundHandlerAdapter {
     @Override
     public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) throws Exception {
         System.out.println("EchoServerOutHandler2  write" + msg);
-        ctx.write(msg);
+        ctx.writeAndFlush(msg);
     }
 
     @Override

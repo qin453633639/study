@@ -13,9 +13,12 @@ import io.netty.util.CharsetUtil;
  */
 @ChannelHandler.Sharable
 public class EchoServerHandler extends ChannelInboundHandlerAdapter {
+    private int i = 0;
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
+        System.out.println(++i);
         ByteBuf in = (ByteBuf) msg;
+        System.out.println( in.toString(CharsetUtil.UTF_8).length());
         System.out.println(
                 "Server received: " + in.toString(CharsetUtil.UTF_8));
         //将接收到的消息 写给发送者，而不冲刷出站消息

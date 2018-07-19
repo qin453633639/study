@@ -16,10 +16,10 @@ public class EchoServerHandler1 extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
         ByteBuf in = (ByteBuf) msg;
-        System.out.println(
-                "Server received1: " + in.toString(CharsetUtil.UTF_8));
+       /* System.out.println(
+                "Server received1: " + in.toString(CharsetUtil.UTF_8));*/
         //将接收到的消息 写给发送者，而不冲刷出站消息
-        ctx.channel().write(msg+"12313123213");
+        ctx.channel().write(msg);
 
     }
 

@@ -18,7 +18,7 @@ public class EchoClient {
         this.port = port;
     }
     public void start() throws Exception {
-        EventLoopGroup group = new NioEventLoopGroup();
+        EventLoopGroup group = new NioEventLoopGroup(1);
         try {
             Bootstrap b = new Bootstrap();
             b.group(group)
@@ -33,6 +33,7 @@ public class EchoClient {
                         }
                     });
             ChannelFuture f = b.connect().sync();
+            f = b.connect(new InetSocketAddress(host, 3600)).sync();
             f.channel().closeFuture().sync();
         } finally {
             group.shutdownGracefully().sync();
@@ -41,7 +42,7 @@ public class EchoClient {
     public static void main(String[] args) throws Exception {
 
         String host = "localhost";
-        int port = 3600;
+        int port = 3601;
         new EchoClient(host, port).start();
 
     }
