@@ -20,13 +20,14 @@ public class App
         for(int i=0;i<10;i++){
             list.add(i );
         }
+        MyPredicate myPredicate = new MyPredicate();
+        MyFunction myFunction = new MyFunction();
+        MyConsumer myConsumer  = new MyConsumer();
+
         Stream<Integer> stream=  list.stream();
         Stream<Integer> streamFilter;
         Stream<Integer> streamMap;
 
-        MyPredicate myPredicate = new MyPredicate();
-        MyFunction myFunction = new MyFunction();
-        MyConsumer myConsumer  = new MyConsumer();
 
         streamFilter = stream.filter(
                /* (s) -> {
