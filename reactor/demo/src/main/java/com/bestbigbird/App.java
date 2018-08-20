@@ -41,7 +41,8 @@ public class App
                             System.out.println("i am map");
                             return   a+1;
                         }*/ myFunction);
-        streamMap.forEach(
+
+        streamMap.parallel().forEach(
                /* (a) -> {
                     System.out.println("i am forEach");
                     System.out.println( a);
@@ -54,7 +55,7 @@ public class App
 class MyPredicate implements Predicate<Integer> {
     @Override
     public boolean test(Integer o) {
-        System.out.println("i am filter");
+       // System.out.println("i am filter");
         return o.intValue() < 5;
     }
 }
@@ -62,7 +63,7 @@ class MyPredicate implements Predicate<Integer> {
 class MyFunction implements  Function<Integer,Integer>{
     @Override
     public Integer apply(Integer o) {
-        System.out.println("i am map");
+       // System.out.println("i am map");
         return o.intValue()+1;
     }
 }
@@ -70,7 +71,7 @@ class MyFunction implements  Function<Integer,Integer>{
 class MyConsumer implements Consumer<Integer> {
     @Override
     public void accept(Integer o) {
-        System.out.println("i am forEach");
+       // System.out.println("i am forEach");
         System.out.println(o.intValue());
     }
 }

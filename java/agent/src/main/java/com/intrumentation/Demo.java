@@ -6,8 +6,8 @@ import org.springframework.context.SmartLifecycle;
 /**
  * demo
  */
-public class Demo implements SmartLifecycle {
-    public static void main(String[] args) throws Exception {
+public class Demo /*implements SmartLifecycle */{
+    /*public static void main(String[] args) throws Exception {
         VirtualMachine vm = VirtualMachine.attach(args[0]);
         vm.loadAgent("F:/idea/source/agent/target/agent-1.0-SNAPSHOT.jar");
     }
@@ -40,5 +40,5 @@ public class Demo implements SmartLifecycle {
     @Override
     public int getPhase() {
         return 0;
-    }
+    }*/
 }

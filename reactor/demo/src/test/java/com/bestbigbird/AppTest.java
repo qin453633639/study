@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Hooks;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Scheduler;
 import reactor.core.scheduler.Schedulers;
@@ -24,7 +25,21 @@ public class AppTest {
     @Test
     public void flux() {
         //Flux.range(1, 10).filter(i -> i % 2 == 0).subscribe(System.out::println);
-        //Flux.just("Hello", "World", "H23", "sb", "H").filter(item -> item.startsWith("H")).take(1).subscribe(System.out::println);
+
+
+      /*  Flux.just("Hello", "World", "H23", "sb", "H")
+
+                .filter(item -> {
+                    System.out.println(Thread.currentThread().getName() + "== "+item);
+                    return item.startsWith("H");})
+                .publishOn(Schedulers. elastic())
+                .subscribe( s ->  System.out.println(Thread.currentThread().getName() + " "+s));*/
+
+        Flux.just("a", "b", "c", "d", "e", "f", "g", "h", "i", "j")
+                .parallel(2)
+                .runOn(Schedulers.elastic())
+                .subscribe(s ->  System.out.println(Thread.currentThread().getName() + " "+s));
+
     }
 
     @Test

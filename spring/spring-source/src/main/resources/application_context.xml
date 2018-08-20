@@ -21,6 +21,7 @@
         <meta key="name" value="1"></meta>
         <property name="age" value="${age}"/>
     </bean>
+    <context:component-scan base-package="spring.entity"></context:component-scan>
     <!--
     <bean id="person" class="spring.entity.Persion"></bean>
     <context:component-scan base-package="spring.entity"></context:component-scan>
