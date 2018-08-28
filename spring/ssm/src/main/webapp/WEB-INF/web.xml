@@ -65,14 +65,14 @@
         <init-param>
             <param-name>contextConfigLocation</param-name>
             <!--spingMVC的配置路径  -->
-            <param-value>classpath:springmvc1.xml</param-value>
+            <param-value>classpath:springmvc2.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <!-- 拦截设置 -->
     <servlet-mapping>
         <servlet-name>dispatcherServlet</servlet-name>
-        <url-pattern>*.html</url-pattern>
+        <url-pattern>/*</url-pattern>
     </servlet-mapping>
     
     

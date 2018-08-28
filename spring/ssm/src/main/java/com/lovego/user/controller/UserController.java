@@ -44,12 +44,15 @@ public class UserController extends BaseConroller{
 	@Autowired  
     private UserService userService;
 	
-	@RequestMapping(value = "/delete", method={RequestMethod.GET} ,produces = "application/json;charset=utf-8")
+	@RequestMapping(value = "/delete", method={RequestMethod.GET} )
 	@ResponseBody
-	public JSONObject delete(long id){
-		throw new RuntimeException("aaa");
+	public User delete(){
+
 		/* userService.delete(id);
 		 return ResponseUtil.writeResult(ReturnCode.C200);*/
+		User u  = new User();
+		u.setName("1111");
+		return u;
 		 
 	}
 	

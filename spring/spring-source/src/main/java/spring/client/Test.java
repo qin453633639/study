@@ -29,7 +29,8 @@ public class Test {
 
 
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("application.xml");
-        System.out.println(ctx.getBean(OrderServiceimpl.class).count());
+
+        ctx.start();
        /* System.out.println(ctx.getBean(OrderServiceimpl.class).getClass());
         System.out.println(ctx.getBean(TitleServiceImpl.class).getClass());*/
 
