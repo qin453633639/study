@@ -24,7 +24,7 @@ public class AppTest {
 
     @Test
     public void flux() {
-        //Flux.range(1, 10).filter(i -> i % 2 == 0).subscribe(System.out::println);
+        Flux.range(1, 10).filter(i -> i % 2 == 0).subscribe(System.out::println);
 
 
       /*  Flux.just("Hello", "World", "H23", "sb", "H")
@@ -35,11 +35,11 @@ public class AppTest {
                 .publishOn(Schedulers. elastic())
                 .subscribe( s ->  System.out.println(Thread.currentThread().getName() + " "+s));*/
 
-        Flux.just("a", "b", "c", "d", "e", "f", "g", "h", "i", "j")
+    /*    Flux.just("a", "b", "c", "d", "e", "f", "g", "h", "i", "j")
                 .parallel(2)
                 .runOn(Schedulers.elastic())
                 .subscribe(s ->  System.out.println(Thread.currentThread().getName() + " "+s));
-
+*/
     }
 
     @Test
