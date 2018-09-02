@@ -18,6 +18,7 @@
 
         <module>db</module>
           -->
+        <module>log</module>
     </modules>
     
 </project>
