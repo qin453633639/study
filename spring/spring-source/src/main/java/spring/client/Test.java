@@ -28,8 +28,10 @@ public class Test {
         s.count();*/
 
 
-        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("application.xml");
+        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("application_aop.xml");
 
+        OrderServiceimpl a = ctx.getBean("orderService", OrderServiceimpl.class);
+        System.out.println(a.count());
         ctx.start();
        /* System.out.println(ctx.getBean(OrderServiceimpl.class).getClass());
         System.out.println(ctx.getBean(TitleServiceImpl.class).getClass());*/

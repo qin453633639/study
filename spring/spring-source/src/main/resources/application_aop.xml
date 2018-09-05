@@ -27,16 +27,7 @@
 	<bean id="titleService" class="spring.aop.TitleServiceImpl"/>
 	-->
 
-	<bean id="timeHandler" class="spring.aop.TimeHandler" />
-	<bean id="orderService" class="spring.aop.OrderServiceimpl"/>
+	<context:component-scan base-package="spring.aop"/>
 
-	<aop:config proxy-target-class="true">
-		<aop:aspect id="time" ref="timeHandler">
-			<aop:pointcut id="addAllMethod" expression="execution(* *.count(..))" />
-			<aop:before method="printTime" pointcut-ref="addAllMethod" />
-			<aop:after method="printTime" pointcut-ref="addAllMethod" />
-		</aop:aspect>
-	</aop:config>
-
-
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
 </beans>

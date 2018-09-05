@@ -1,5 +1,8 @@
 package spring.aop;
 
+import org.springframework.stereotype.Service;
+
+@Service("orderService")
 public class OrderServiceimpl {
 
     public int count(){
