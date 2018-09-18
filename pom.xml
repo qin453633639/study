@@ -23,6 +23,7 @@
         <module>db</module>
           -->
         <module>log</module>
+        <module>dubbo</module>
     </modules>
     
 </project>
