@@ -13,7 +13,7 @@ import java.util.Date;
 
 @Configuration
 
-public class User  implements SmartLifecycle  ,InitializingBean {
+public class User    {
 
     private String name;
     private int age;
@@ -50,47 +50,5 @@ public class User  implements SmartLifecycle  ,InitializingBean {
     }
 
 
-    @Override
-    public boolean isAutoStartup() {
-        return true;
-    }
 
-    @Override
-    public void stop(Runnable callback) {
-
-    }
-
-    @Override
-    public void start() {
-        System.out.println("user start()");
-    }
-
-    @Override
-    public void stop() {
-
-    }
-
-    @Override
-    public boolean isRunning() {
-        return false;
-    }
-
-    @Override
-    public int getPhase() {
-        return 1;
-    }
-
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        System.out.println("user InitializingBean");
-    }
-
-    public void init(){
-        System.out.println("init method");
-    }
-
-    @Bean(name = "student")
-    public Student getStuden(){
-        return new Student();
-    }
 }

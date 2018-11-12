@@ -42,7 +42,7 @@ public class EchoClient {
     public static void main(String[] args) throws Exception {
 
         String host = "localhost";
-        int port = 3601;
+        int port = 3600;
         new EchoClient(host, port).start();
 
     }

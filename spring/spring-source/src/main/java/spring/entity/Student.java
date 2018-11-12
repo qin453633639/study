@@ -37,17 +37,17 @@ public class Student  implements Lifecycle,DisposableBean {
         System.out.println("SmartLifecycle stop()");
     }*/
 
-    @Override
+
     public void start() {
         System.out.println("Lifecycle start()");
     }
 
-    @Override
+
     public void stop() {
         System.out.println("Lifecycle stop");
     }
 
-    @Override
+
     public boolean isRunning() {
         return false;
     }
@@ -57,7 +57,7 @@ public class Student  implements Lifecycle,DisposableBean {
         return 2;
     }*/
 
-    @Override
+
     public void destroy() throws Exception {
         System.out.println("DisposableBean destroy");
     }

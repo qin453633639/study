@@ -35,8 +35,8 @@ public class EchoServer {
                     .channel(NioServerSocketChannel.class)
                     .localAddress(new InetSocketAddress(port))
 
-                    .childOption(ChannelOption.RCVBUF_ALLOCATOR, new AdaptiveRecvByteBufAllocator(128,128,128))
-                    .option(ChannelOption.SO_RCVBUF,256)
+                    .childOption(ChannelOption.RCVBUF_ALLOCATOR, new AdaptiveRecvByteBufAllocator())
+                   // .option(ChannelOption.SO_RCVBUF,256)
                     //添加一个 EchoServerHandler 到子 Channel的 ChannelPipeline
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override

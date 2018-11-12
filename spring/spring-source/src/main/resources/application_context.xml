@@ -20,11 +20,8 @@
         <meta key="name" value="1"></meta>
         <property name="age" value="${age}"/>
     </bean>
-    <bean id="beanFactoryPostProcessorOne" class="spring.entity.BeanFactoryPostProcessorOne"></bean>
+    <context:component-scan base-package="spring.entity"></context:component-scan>
 
-    <bean id="placeholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="location" value="db.properties"></property>
-    </bean>
     <!--
     <bean id="placeholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location" value="db.properties"></property>
