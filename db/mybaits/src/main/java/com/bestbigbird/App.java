@@ -29,10 +29,12 @@ public class App {
 
 
         SqlSession sqlSession = sqlSessionFactory.openSession();
+        sqlSession.commit();;
         // list中的user和映射文件中resultType所指定的类型一致
         User u = (User)sqlSession.selectOne("com.bestbigbird.mapper.UserMapper.findById",5);
         System.out.println(u.getId()+"  --   "+u.getAge());
         sqlSession.close();
+
 
 
         sqlSession = sqlSessionFactory.openSession();

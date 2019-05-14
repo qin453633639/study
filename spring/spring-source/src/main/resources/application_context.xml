@@ -16,11 +16,8 @@
 >
 
 
-    <bean id="student" class="spring.entity.Student"   destroy-method="initDestroy" >
-        <meta key="name" value="1"></meta>
-        <property name="age" value="${age}"/>
-    </bean>
-    <context:component-scan base-package="spring.entity"></context:component-scan>
+
+    <context:component-scan base-package="spring.autowire"></context:component-scan>
 
     <!--
     <bean id="placeholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">

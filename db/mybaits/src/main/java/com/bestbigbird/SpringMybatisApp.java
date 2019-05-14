@@ -10,5 +10,6 @@ public class SpringMybatisApp {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("application.xml");
         UserService userService = applicationContext.getBean(  UserService.class);
         userService.aa();
+        userService.aa();
     }
 }

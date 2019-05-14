@@ -7,6 +7,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import spring.aop.OrderServiceimpl;
 import spring.aop.TitleServiceImpl;
+import spring.autowire.A;
 import spring.entity.Student;
 import spring.entity.User;
 
@@ -30,7 +31,7 @@ public class Test {
 
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("application_context.xml");
 
-       // OrderServiceimpl a = ctx.getBean("orderService", OrderServiceimpl.class);
+       //Object a = ctx.getBean("a", A.class);
         System.out.println(1);
         //ctx.start();
        /* System.out.println(ctx.getBean(OrderServiceimpl.class).getClass());
