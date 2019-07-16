@@ -1,6 +1,8 @@
 package com.bestbigbird.nio.demo;
 
 
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
@@ -88,8 +90,10 @@ public class NIOServer {
     }
 
     public static void main(String[] args) throws IOException {
-        NIOServer server = new NIOServer();
+        System.out.println(Selector.open());
+        System.out.println(Selector.open());
+        /*NIOServer server = new NIOServer();
         server.initServer(8080);
-        server.listen();
+        server.listen();*/
     }
 }

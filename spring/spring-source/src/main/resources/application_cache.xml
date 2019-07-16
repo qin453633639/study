@@ -15,14 +15,26 @@
 
 	 ">
 	<context:component-scan base-package="spring.cache"/>
-	<cache:annotation-driven   proxy-target-class="false" mode="proxy" cache-manager="cacheManager"/>
+	<cache:annotation-driven   proxy-target-class="false" mode="proxy" cache-manager="two"/>
 
-	<bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+	<bean id="one" class="org.springframework.cache.support.SimpleCacheManager">
 		<property name="caches">
 			<set>
 				<!-- 此处类concurrentMapCacheFactoryBean的作用是产生 缓存类 实例-->
 				<bean name="myCache" class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"/>
 				<bean name="myCache1" class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"/>
+
+			</set>
+
+		</property>
+	</bean>
+
+	<bean id="two" class="org.springframework.cache.support.SimpleCacheManager">
+		<property name="caches">
+			<set>
+				<!-- 此处类concurrentMapCacheFactoryBean的作用是产生 缓存类 实例-->
+				<bean name="myCache3" class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"/>
+				<bean name="myCache4" class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"/>
 
 			</set>
 

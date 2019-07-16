@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service("my")
 public class My  implements IMy{
 
-    @Cacheable(value = "myCache")
+    @Cacheable(value = "myCache",cacheManager = "two")
     public String getName(String id){
         return createName(id);
     }
