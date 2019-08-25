@@ -22,8 +22,7 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
         System.out.println(
                 "Server received: " + in.toString(CharsetUtil.UTF_8));
         //将接收到的消息 写给发送者，而不冲刷出站消息
-       //ctx.write(in);
-        ctx.fireChannelRead(msg);
+         ctx.fireChannelRead("adfdsafdsa");
     }
 
     @Override

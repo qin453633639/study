@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		   http://code.alibabatech.com/schema/dubbo
+	   	   http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+            ">
+
+    <context:component-scan base-package="com.pw.user"/>
+
+    <dubbo:application name="user-service" owner="user"  organization="pw"></dubbo:application>
+
+    <dubbo:registry  protocol="zookeeper" address="192.168.31.200:2181"/>
+
+    <dubbo:protocol name="dubbo"></dubbo:protocol>
+
+    <dubbo:consumer check="false" timeout="6000" version="1.0.0" retries="2"  client="netty4"></dubbo:consumer>
+
+    <dubbo:provider    version="1.0.0"  server="netty4" port="20881"></dubbo:provider>
+
+    <dubbo:service interface="com.qw.common.api.user.api.UserAddressApi" ref="useraddress" ></dubbo:service>
+
+
+    <dubbo:service interface="com.qw.common.api.user.api.UserApi" ref="userService"  ></dubbo:service>
+
+    <!-- injvm="true"  -->
+    <dubbo:reference interface="com.qw.common.api.order.api.OrderApi" id="orderApi"  />
+
+</beans>
+
