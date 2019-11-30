@@ -5,6 +5,8 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.http.HttpRequestDecoder;
+import io.netty.handler.codec.http.HttpResponseEncoder;
 
 import java.net.InetSocketAddress;
 
@@ -34,15 +36,14 @@ public class EchoServer {
                     //指定所使用的 NIO 传输 Channel
                     .channel(NioServerSocketChannel.class)
                     .localAddress(new InetSocketAddress(port))
-
-                   // .childOption(ChannelOption.RCVBUF_ALLOCATOR, new AdaptiveRecvByteBufAllocator())
-                   // .option(ChannelOption.SO_RCVBUF,256)
+                    // .option(ChannelOption.SO_RCVBUF,256)
                     //添加一个 EchoServerHandler 到子 Channel的 ChannelPipeline
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         public void initChannel(SocketChannel ch) throws Exception {
-                            ch.pipeline().addLast(serverHandler).addLast(serverHandler1);
-                            ch.pipeline().addLast(out2).addLast(out);
+                            ch.pipeline().addLast(new HttpResponseEncoder(),
+                                    new HttpRequestDecoder(),
+                                    new NettyHttpServerHandler());
                         }
                     });
 
