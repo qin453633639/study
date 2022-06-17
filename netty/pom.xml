@@ -16,7 +16,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <com.alibaba.fastjson.version>1.2.58</com.alibaba.fastjson.version>
+    <com.alibaba.fastjson.version>1.2.83</com.alibaba.fastjson.version>
   </properties>
 
   <dependencies>
